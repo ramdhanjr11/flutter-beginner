@@ -88,19 +88,23 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
             Center(
-              child: ElevatedButton(
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      if (_usernameController.text == 'admin' &&
-                          _passwordController.text == 'admin') {
-                        Navigator.push(
-                            context, MaterialPageRoute(builder: (context) =>
-                            const HomeScreen()
-                        ));
+              child: Container(
+                width: double.infinity,
+                margin: EdgeInsets.only(left: 16, right: 16),
+                child: ElevatedButton(
+                    onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        if (_usernameController.text == 'admin' &&
+                            _passwordController.text == 'admin') {
+                          Navigator.push(
+                              context, MaterialPageRoute(builder: (context) =>
+                              const HomeScreen()
+                          ));
+                        }
                       }
-                    }
-                  },
-                  child: const Text("Login")),
+                    },
+                    child: const Text("Login")),
+              ),
             )
           ],
         ),
