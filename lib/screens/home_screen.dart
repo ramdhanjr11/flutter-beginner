@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:submission_beginner/colors.dart';
+import 'package:submission_beginner/screens/detail_course_screen.dart';
 
 import '../courses.dart';
 
@@ -66,27 +67,34 @@ class DisplayCourses extends StatelessWidget {
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.all(4.0),
-          child: Card(
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Expanded(
-                  flex: 1,
-                  child: SizedBox(
-                      height: 100,
-                      width: 100,
-                      child: Image.asset(_courses[index].image)),
-                ),
-                Expanded(
-                  flex: 2,
-                    child: Text(
-                        _courses[index].title,
-                      style: const TextStyle(color: dicodingColor),
-                    )
-                )
-              ],
+          child: InkWell(
+            child: Card(
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Expanded(
+                    flex: 1,
+                    child: SizedBox(
+                        height: 100,
+                        width: 100,
+                        child: Image.asset(_courses[index].image)),
+                  ),
+                  Expanded(
+                    flex: 2,
+                      child: Text(
+                          _courses[index].title,
+                        style: const TextStyle(color: dicodingColor),
+                      )
+                  )
+                ],
+              ),
             ),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return DetailCourseScreen(course: _courses[index]);
+              }));
+            },
           ),
         );
       },

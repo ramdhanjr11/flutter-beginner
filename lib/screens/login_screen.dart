@@ -90,7 +90,7 @@ class _LoginScreenState extends State<LoginScreen> {
             Center(
               child: Container(
                 width: double.infinity,
-                margin: EdgeInsets.only(left: 16, right: 16),
+                margin: const EdgeInsets.only(left: 16, right: 16),
                 child: ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
